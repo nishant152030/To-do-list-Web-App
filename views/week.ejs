@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+    <main>
+        <div class="box" id="heading">
+            <h1>Week Goals</h1>
+        </div>
+        <div class="box">
+            <% if(locals.tasks) {%>
+                <% for(var i=0;i<tasks.length;i++) { %>
+                    <% if(tasks[i]!="undefined" ) {%>
+                        <div class="item">
+                            <h2 id=<%=i %> >
+                                <form style="display: inline;" action="/submit" method="POST">
+                                    <input type="checkbox" name="completed">
+                                </form>
+                                <%= tasks[i] %>
+                            </h2>
+                        </div>
+                        <% } %>
+                            <% }; %>
+                                <form action="/week" method="POST">
+                                    <label for="addtask"></label>
+                                    <input type="text" id="addtask" name="addtask" placeholder="Add a new task">
+                                    <input type="submit" value="+">
+                                </form>
+                                <% }else { %>
+                                    <h2>No task added yet</h2>
+                                    <form action="/week" method="POST">
+                                        <label for="addtask"></label>
+                                        <input type="text" name="addtask" placeholder="Add a new task">
+                                        <input class="addtask" type="submit" value="+">
+                                    </form>
+                                    <% } %>
+        </div>
+    </main>
+    <%- include("partials/footer.ejs") %>
