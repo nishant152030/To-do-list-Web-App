@@ -1,35 +1,37 @@
 <%- include("partials/header.ejs") %>
     <main>
         <div class="box" id="heading">
-            <h1>Today Goals</h1>
+            <% const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %>
+            <h1><%= days[new Date().getDay()] %>,</h1>
+            <h1 style="display: inline-block;"><%= (new Date().getDate()) %>-<%= (new Date().getMonth())+1 %>-<%= new Date().getFullYear() %></h1>
         </div>
         <div class="box">
             <% if(locals.tasks) {%>
                 <% for(var i=0;i<tasks.length;i++) { %>
-                    <% if(tasks[i]!="undefined" ) {%>
+                    <% if(tasks[i]!="" ) {%>
                         <div class="item">
-                            <h2 id=<%=i %> >
-                                <form style="display: inline;" action="/submit" method="POST">
-                                    <input type="checkbox" name="completed">
+                            <h2 class="checkbox" >
+                                <form action="/delete" method="POST">
+                                    <input type="hidden" name="url" value="today">
+                                    <input type="checkbox" name="checkbox" value=<%= tasks[i]._id %> onchange="this.form.submit()">
+                                    <span style="max-width: 400px;"><%= tasks[i].inputtask %></span>
                                 </form>
-                                <%= tasks[i] %>
                             </h2>
                         </div>
-                        <% } %>
-                            <% }; %>
-                                <form action="/today" method="POST">
-                                    <label for="addtask"></label>
-                                    <input type="text" id="addtask" name="addtask" placeholder="Add a new task">
-                                    <input type="submit" value="+">
-                                </form>
-                                <% }else { %>
-                                    <h2>No task added yet</h2>
-                                    <form action="/today" method="POST">
-                                        <label for="addtask"></label>
-                                        <input type="text"  name="addtask" placeholder="Add a new task">
-                                        <input class="addtask" type="submit" value="+">
-                                    </form>
-                                    <% } %>
+                    <% } %>
+                <% }; %>
+                    <form action="/today" method="POST">
+                        <label for="addtask"></label>
+                        <input type="text" name="addtask" placeholder="Add a new task">
+                        <input class="addtask" type="submit" value="+">
+                    </form>
+            <% }else { %>
+                <form action="/today" method="POST">
+                    <label for="addtask"></label>
+                    <input type="text"  name="addtask" placeholder="Add a new task">
+                    <input class="addtask" type="submit" value="+">
+                </form>
+            <% } %>
         </div>
     </main>
     <%- include("partials/footer.ejs") %>

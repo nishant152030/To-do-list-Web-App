@@ -4,56 +4,63 @@ html {
 }
 
 body{
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     min-height: 95vh;
-    background-color: rgb(116, 181, 234);
+    background-color: rgb(30, 32, 33);
 }
 main{
     text-align: center;
     flex: 1 0 auto;
 }
 .container-fluid {
-    padding-left: 0%;
+    padding-left: 5px;
+    
 }
 
+.navbar{
+    border-bottom: 1px solid black ;
+    padding-left: 10px;
+}
+
+.header {
+    margin-top: 25vh;
+}
 h1{
+    font-size: 40px;
     font-family:'Croissant One';
     text-align: center;
-    margin-top: 100px;
-    min-height: 50px;
+    min-width: 400px;
+    min-height: 55px;
 }
 
-h2 {
+h2{
     margin: 0;
     padding: 10px;
     font-size: 25px;
     color: #00204a;
-  }
-  
+}
+
+
 #heading{
-    background-color: rgb(162, 95, 223);
+    background-color: rgb(101, 69, 133);
     text-align: center;
 }
+
 .box{
     max-width: 400px;
     margin: 50px auto;
     border-radius: 5px;
-    box-shadow: 5px 5px 15px -5px;
+    box-shadow: 5px 5px 10px -5px;
     background: #fff;
 }
-
 
 form {
     text-align: center;
     margin-left: 0%;
-  }
-
-input:checked + h2 {
-    text-decoration: line-through;
-    text-decoration-color: #a683e3;
-  }
+}
 
 #createbtn {
     text-align: center;
@@ -62,21 +69,23 @@ input:checked + h2 {
 
 #createbtn input {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(58, 72, 72);
-    border-radius: 3%;
+    background-color: rgb(44, 48, 49);
+    border-radius: 6%;
     font-size:xx-large;
-    color: aliceblue;
+    box-shadow: 5px 5px 10px -5px gray;
+    color: rgb(255, 0, 0);
 }
 
 #createbtn input:hover{
-    background-color: rgb(112, 112, 167);
+    background-color: rgb(79, 85, 88);
 }
 
-input[type="text"] {
+input[type="text"] { 
     text-align: center;
     height: 60px;
     top: 10px;
     border: none;
+    box-shadow: none;
     background: white;
     font-size: 20px;
     font-weight: 200;
@@ -84,29 +93,27 @@ input[type="text"] {
     margin-left: 0%;
 }
 
-.addtask{
-    min-height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border-color: white;
-    background-color: #a683e3;
-    color: #fff;
-    font-size: 30px;
+input.addtask{
+    text-align: center;
+    line-height: 100%;
+    background-color: #ffffff;
+    font-size: 40px;
     border-width: 0;
+    margin-left: 15px;
 }
  
 .item{
     min-height: 40px;
     display: flex;
-    padding: 20px;
-    background-color: burlywood;
+    padding: 15px;
+    background-color: rgb(75, 82, 72);
     align-items: center;
+    box-shadow: none;
     border-bottom: 1px solid black;
 }
 
 footer{
     flex: 0 0 auto;
     color: white;
-    color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
